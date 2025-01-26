@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 import classes from "./NavBar.module.scss";
-import logo from "../../assets/Toy-Shop-Logo.png";
+import logo from "../../images/Toy-Shop-Logo.png";
 
 const NavBar = () => {
   const linkStyles = ({ isActive }) =>
