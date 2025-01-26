@@ -1,12 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from 'firebase/firestore';
+
+const API_KEY = import.meta.env.FIREBASE_API_KEY;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDPgXBorLNRjoho96ysq_t78oXxCBS4eQw",
+  apiKey: API_KEY,
   authDomain: "bruges-firebase.firebaseapp.com",
   projectId: "bruges-firebase",
   storageBucket: "bruges-firebase.firebasestorage.app",
