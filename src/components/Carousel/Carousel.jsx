@@ -1,4 +1,3 @@
-// src/components/Carousel.jsx
 import React, { useState } from "react";
 import styles from "./Carousel.module.scss";
 
@@ -17,6 +16,18 @@ const Carousel = ({ images }) => {
     );
   };
 
+  const getStockStatus = (quantity) => {
+    if (quantity > 5) {
+      return { text: `In Stock: ${quantity}`, color: "green" };
+    } else if (quantity > 0 && quantity <= 5) {
+      return { text: `Low Stock: ${quantity}`, color: "orange" };
+    } else {
+      return { text: "No Stock", color: "red" };
+    }
+  };
+
+  const { text, color } = getStockStatus(images[currentIndex].quantity);
+
   return (
     <div className={styles.carousel}>
       <div className={styles["carousel-inner"]}>
@@ -28,6 +39,8 @@ const Carousel = ({ images }) => {
         <div className={styles["carousel-caption"]}>
           <h2>{images[currentIndex].name}</h2>
           <p>Price: ${images[currentIndex].price}</p>
+          {/* Displaying Quantity */}
+          <p style={{ color }}>{text}</p>
         </div>
       </div>
       <button
