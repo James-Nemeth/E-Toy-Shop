@@ -1,0 +1,32 @@
+.detailsPage {
+    color: #1e96fc;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .detailsPage h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .detailsPage .image {
+    width: 50%;
+    max-width: 300px;
+    margin: 14px 0;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .detailsPage p {
+    text-align: start;
+    margin: auto;
+    padding: 15px 0;
+    width: 60%;
+    font-size: 1.35em;
+    color: #333;
+  }
+  
+  .detailsPage strong {
+    color: #1e96fc;
+  }
+  

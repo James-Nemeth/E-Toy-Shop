@@ -1,5 +1,5 @@
 // src/services/toys-service.js
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firestore.js";
 
 export const getToys = async () => {
@@ -10,4 +10,15 @@ export const getToys = async () => {
     ...doc.data(),
   }));
   return toysList;
+};
+
+export const getToyById = async (toyId) => {
+  const toyDocRef = doc(db, "toys", toyId);
+  const toyDoc = await getDoc(toyDocRef);
+
+  if (toyDoc.exists()) {
+    return { id: toyDoc.id, ...toyDoc.data() };
+  } else {
+    throw new Error("Toy not found");
+  }
 };

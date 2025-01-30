@@ -1,5 +1,5 @@
 .card {
-  position: relative;
+    position: relative;
     border: 1px solid #ffff58;
     border-radius: 8px;
     padding: 40px;
@@ -8,6 +8,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%; 
     max-width: 350px; 
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      transform: scale(1.04);
+    }
+    
   }
   
   .image {
@@ -15,6 +21,7 @@
     height: 275px;
     object-fit: cover;
     border-radius: 8px;
+    
   }
   
   .info {
@@ -45,21 +52,5 @@
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 1em;
-  }
-
-  .btn {
-    font-size: 1.2em;
-    margin-top: 15px;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 10px;
-    background-color: #ffff58;
-    color: #1e96fc;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.1s ease-in-out;
-    &:hover {
-        transform: scale(1.1);
-    }
   }
   
