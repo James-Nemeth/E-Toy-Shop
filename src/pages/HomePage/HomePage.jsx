@@ -4,6 +4,7 @@ import Carousel from "../../components/Carousel/Carousel.jsx";
 import Card from "../../components/Card/Card.jsx";
 import classes from "./HomePage.module.scss";
 import { NavLink } from "react-router";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const HomePage = () => {
   const [toys, setToys] = useState([]);
@@ -23,12 +24,7 @@ const HomePage = () => {
 
   return (
     <div className={classes["home-page"]}>
-      {toys.length > 0 ? (
-        <Carousel images={toys.slice(4, 7)} />
-      ) : (
-        <p>Loading toys...</p>
-      )}
-
+      {toys.length > 0 ? <Carousel images={toys.slice(4, 7)} /> : <Loader />}
       {/* Featured Products Section */}
       <h2 className={classes.title}>Featured Products</h2>
       <div className={classes["product-grid"]}>

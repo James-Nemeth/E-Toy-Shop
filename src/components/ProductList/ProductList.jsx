@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getToys } from "../../services/toys-services.js";
 import Card from "../Card/Card.jsx";
 import classes from "./ProductList.module.scss";
+import Loader from "../Loader/Loader.jsx";
 
 const ProductList = () => {
   const [toys, setToys] = useState([]);
@@ -24,7 +25,7 @@ const ProductList = () => {
       {toys.length > 0 ? (
         toys.map((toy) => <Card key={toy.id} toy={toy} />)
       ) : (
-        <p>Loading toys...</p>
+        <Loader />
       )}
     </div>
   );
