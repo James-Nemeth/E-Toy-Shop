@@ -3,6 +3,7 @@ import { getToys } from "../../services/toys-services.js";
 import Carousel from "../../components/Carousel/Carousel.jsx";
 import Card from "../../components/Card/Card.jsx";
 import classes from "./HomePage.module.scss";
+import { NavLink } from "react-router";
 
 const HomePage = () => {
   const [toys, setToys] = useState([]);
@@ -22,14 +23,23 @@ const HomePage = () => {
 
   return (
     <div className={classes["home-page"]}>
-      {toys.length > 0 ? <Carousel images={toys} /> : <p>Loading toys...</p>}
+      {toys.length > 0 ? (
+        <Carousel images={toys.slice(4, 7)} />
+      ) : (
+        <p>Loading toys...</p>
+      )}
 
       {/* Featured Products Section */}
-      <h2 className={classes["section-title"]}>Featured Products</h2>
+      <h2 className={classes.title}>Featured Products</h2>
       <div className={classes["product-grid"]}>
-        {toys.slice(0, 4).map((toy) => (
+        {toys.slice(9, 13).map((toy) => (
           <Card key={toy.id} toy={toy} />
         ))}
+      </div>
+      <div className={classes.btnWrapper}>
+        <NavLink className={classes.productBtn} to="/products">
+          See More Products
+        </NavLink>
       </div>
     </div>
   );

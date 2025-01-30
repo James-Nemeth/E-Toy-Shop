@@ -1,4 +1,5 @@
 .card {
+  position: relative;
     border: 1px solid #ffff58;
     border-radius: 8px;
     padding: 40px;
@@ -32,6 +33,18 @@
   
   .noStock {
     color: red;
+  }
+
+  .newLabel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1em;
   }
 
   .btn {

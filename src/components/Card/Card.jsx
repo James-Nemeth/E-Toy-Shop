@@ -1,5 +1,5 @@
-import React from "react";
 import classes from "./Card.module.scss";
+import Button from "../Button/Button";
 
 const getStockStatus = (quantity) => {
   if (quantity > 5) {
@@ -16,12 +16,13 @@ const Card = ({ toy }) => {
 
   return (
     <div className={classes.card}>
+      {toy.isNew && <div className={classes.newLabel}>New</div>}
       <img src={toy.imageUrl} alt={toy.name} className={classes.image} />
       <div className={classes.info}>
         <h3>{toy.name}</h3>
         <p>Price: ${toy.price}</p>
         <p className={className}>{text}</p>
-        <button className={classes.btn}>Add to Cart</button>
+        <Button>Add To Cart</Button>
       </div>
     </div>
   );
