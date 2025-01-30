@@ -1,7 +1,6 @@
 // src/components/HomePage.scss
 .home-page {
     text-align: center;
-    padding: 20px;
   
     .toys-container {
       display: flex;
@@ -35,5 +34,13 @@
         }
       }
     }
+    .product-grid {
+      display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: stretch; 
+    gap: 20px;
+    padding: 20px;
   }
+}
   

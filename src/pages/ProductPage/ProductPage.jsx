@@ -1,7 +1,10 @@
+import React from "react";
+import ProductList from "../../components/ProductList/ProductList.jsx";
+
 const ProductPage = () => {
   return (
     <>
-      <h1>Product Page</h1>
+      <ProductList />
     </>
   );
 };

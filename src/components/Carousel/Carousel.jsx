@@ -18,7 +18,7 @@ const Carousel = ({ images }) => {
 
   const getStockStatus = (quantity) => {
     if (quantity > 5) {
-      return { text: `In Stock: ${quantity}`, color: "green" };
+      return { text: `In Stock: ${quantity}`, color: "lightgreen" };
     } else if (quantity > 0 && quantity <= 5) {
       return { text: `Low Stock: ${quantity}`, color: "orange" };
     } else {
@@ -39,7 +39,6 @@ const Carousel = ({ images }) => {
         <div className={styles["carousel-caption"]}>
           <h2>{images[currentIndex].name}</h2>
           <p>Price: ${images[currentIndex].price}</p>
-          {/* Displaying Quantity */}
           <p style={{ color }}>{text}</p>
         </div>
       </div>
