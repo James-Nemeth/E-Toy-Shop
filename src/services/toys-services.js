@@ -1,4 +1,3 @@
-// src/services/toys-service.js
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firestore.js";
 
@@ -16,9 +15,21 @@ export const getToyById = async (toyId) => {
   const toyDocRef = doc(db, "toys", toyId);
   const toyDoc = await getDoc(toyDocRef);
 
-  if (toyDoc.exists()) {
-    return { id: toyDoc.id, ...toyDoc.data() };
-  } else {
+  if (!toyDoc.exists()) {
     throw new Error("Toy not found");
   }
+
+  const toyData = { id: toyDoc.id, ...toyDoc.data() };
+
+  const variantsRef = collection(toyDocRef, "variants");
+  const variantsSnap = await getDocs(variantsRef);
+  const variants = variantsSnap.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  return { ...toyData, variants };
 };
+
+
+
