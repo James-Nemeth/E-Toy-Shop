@@ -5,21 +5,23 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import Footer from "./components/Footer/Footer";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/toy/:toyId" element={<DetailsPage />} />{" "}
-          {/* Dynamic route */}
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/toy/:toyId" element={<DetailsPage />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
     </>
   );
 }
