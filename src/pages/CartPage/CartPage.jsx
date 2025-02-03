@@ -4,6 +4,11 @@ import classes from "./CartPage.module.scss";
 const CartPage = () => {
   const { cart, removeFromCart } = useCart();
 
+  const totalPrice = cart.reduce(
+    (sum, toy) => sum + toy.price * toy.quantity,
+    0
+  );
+
   return (
     <div className={classes.cartPage}>
       <h1>Cart</h1>
@@ -27,6 +32,10 @@ const CartPage = () => {
           </div>
         ))
       )}
+
+      <div className={classes.totalPrice}>
+        <h2>Total Price: ${totalPrice.toFixed(2)}</h2>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import { useCart } from "../../context/CartContext";
 import { updateDoc, doc, getFirestore } from "firebase/firestore";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const getStockStatus = (quantity) => {
   if (quantity > 5) {
@@ -24,6 +25,14 @@ const Card = ({ toy }) => {
   const handleAddToCart = async () => {
     if (currentToy.quantity > 0) {
       addToCart(currentToy);
+      toast.success(`${toy.name} added to cart!`, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
 
       const updatedToy = { ...currentToy, quantity: currentToy.quantity - 1 };
       setCurrentToy(updatedToy);

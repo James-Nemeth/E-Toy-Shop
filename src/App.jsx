@@ -6,11 +6,13 @@ import CartPage from "./pages/CartPage/CartPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import Footer from "./components/Footer/Footer";
 import { CartProvider } from "./context/CartContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
       <CartProvider>
+        <ToastContainer />
         <BrowserRouter>
           <NavBar />
           <Routes>

@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getToyById } from "../../services/toys-services";
+import { useCart } from "../../context/CartContext"; // Import useCart
 import classes from "./DetailsPage.module.scss";
 import Loader from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
+import { updateDoc, doc, getFirestore } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const DetailsPage = () => {
   const { toyId } = useParams();
+  const { addToCart } = useCart(); // Use addToCart from context
   const [toy, setToy] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true);
+  const db = getFirestore();
 
   useEffect(() => {
     const fetchToy = async () => {
@@ -29,6 +34,26 @@ const DetailsPage = () => {
 
   const handleColourSelect = (imageUrl) => {
     setSelectedImage(imageUrl);
+  };
+
+  const handleAddToCart = async () => {
+    if (toy && toy.quantity > 0) {
+      addToCart(toy);
+      toast.success(`${toy.name} added to cart!`, {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      const updatedToy = { ...toy, quantity: toy.quantity - 1 };
+      setToy(updatedToy);
+
+      const toyRef = doc(db, "toys", toy.id);
+      await updateDoc(toyRef, { quantity: updatedToy.quantity });
+    }
   };
 
   if (loading) {
@@ -65,7 +90,9 @@ const DetailsPage = () => {
         {toy.quantity > 0 ? `In Stock: ${toy.quantity}` : "Out of Stock"}
       </p>
 
-      <Button>Add To Cart</Button>
+      <Button onClick={handleAddToCart} disabled={toy.quantity === 0}>
+        {toy.quantity === 0 ? "Out of Stock" : "Add To Cart"}
+      </Button>
     </div>
   );
 };
