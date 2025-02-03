@@ -2,27 +2,37 @@ import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firestore.js";
 
 export const getToys = async () => {
-  const toysCollectionRef = collection(db, "toys");
-  const snapshot = await getDocs(toysCollectionRef);
-  const toysList = snapshot.docs.map((doc) => ({
+  // references toy collection
+  const toysCollectionRef = collection(db, "toys"); 
+  const snapshot = await getDocs(toysCollectionRef); 
+
+  // converts documents into an array
+  return snapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
   }));
-  return toysList;
 };
 
+//Gets a toy by ID and its variants.
 export const getToyById = async (toyId) => {
-  const toyDocRef = doc(db, "toys", toyId);
-  const toyDoc = await getDoc(toyDocRef);
+  // Reference to the toy document
+  const toyDocRef = doc(db, "toys", toyId); 
+  // Fetch toy data
+  const toyDoc = await getDoc(toyDocRef); 
 
+  // error handling
   if (!toyDoc.exists()) {
     throw new Error("Toy not found");
   }
 
+  // Get toy details
   const toyData = { id: toyDoc.id, ...toyDoc.data() };
 
+  // Get toy variants
   const variantsRef = collection(toyDocRef, "variants");
   const variantsSnap = await getDocs(variantsRef);
+
+  // Convert variant documents into an array
   const variants = variantsSnap.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
@@ -30,6 +40,7 @@ export const getToyById = async (toyId) => {
 
   return { ...toyData, variants };
 };
+
 
 
 

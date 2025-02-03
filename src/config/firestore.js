@@ -1,3 +1,4 @@
+// Allowing React to use and fetch the FireStore database
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
 

@@ -22,6 +22,7 @@ const Card = ({ toy }) => {
   const [currentToy, setCurrentToy] = useState(toy);
   const { text, className } = getStockStatus(currentToy.quantity);
 
+  // **Same as Details Page, need to make this function into a function to avoid repeating code**
   const handleAddToCart = async () => {
     if (currentToy.quantity > 0) {
       addToCart(currentToy);

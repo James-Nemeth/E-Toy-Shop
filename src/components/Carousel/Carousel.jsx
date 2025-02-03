@@ -4,18 +4,21 @@ import classes from "./Carousel.module.scss";
 const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // going to the previous image
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
 
+  // going to the next image
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
+  // stock status changes depending on the quantity amount
   const getStockStatus = (quantity) => {
     if (quantity > 5) {
       return { text: `In Stock: ${quantity}`, color: "lightgreen" };

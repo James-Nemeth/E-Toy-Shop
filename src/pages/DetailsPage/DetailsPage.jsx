@@ -37,8 +37,11 @@ const DetailsPage = () => {
   };
 
   const handleAddToCart = async () => {
+    // if the toy exists and has stock
     if (toy && toy.quantity > 0) {
+      // adds the toy to the cart
       addToCart(toy);
+      // toast success message
       toast.success(`${toy.name} added to cart!`, {
         position: "top-left",
         autoClose: 2000,
@@ -48,9 +51,11 @@ const DetailsPage = () => {
         draggable: true,
       });
 
+      // updates the toys quantity locally
       const updatedToy = { ...toy, quantity: toy.quantity - 1 };
       setToy(updatedToy);
 
+      // Update the toys quantity in db
       const toyRef = doc(db, "toys", toy.id);
       await updateDoc(toyRef, { quantity: updatedToy.quantity });
     }

@@ -10,15 +10,17 @@ const HomePage = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
+    // fetch toy data from Firestore
     const fetchToys = async () => {
       try {
         const toysData = await getToys();
+        // update state with toy data
         setToys(toysData);
       } catch (error) {
+        //errors if fetching fails
         console.error("Error fetching toys:", error);
       }
     };
-
     fetchToys();
   }, []);
 

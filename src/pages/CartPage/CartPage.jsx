@@ -5,6 +5,7 @@ const CartPage = () => {
   const { cart, removeFromCart } = useCart();
 
   const totalPrice = cart.reduce(
+    // calculates price of of each item thats added to cart
     (sum, toy) => sum + toy.price * toy.quantity,
     0
   );
