@@ -25,7 +25,6 @@ const HomePage = () => {
   return (
     <div className={classes["home-page"]}>
       {toys.length > 0 ? <Carousel images={toys.slice(4, 7)} /> : <Loader />}
-      {/* Featured Products Section */}
       <h2 className={classes.title}>Featured Products</h2>
       <div className={classes["product-grid"]}>
         {toys.slice(9, 13).map((toy) => (

@@ -2,35 +2,32 @@
   color: #1e96fc;
   text-align: center;
   margin: 20px;
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  p {
+    text-align: start;
+    margin: auto;
+    padding: 10px 0;
+    width: 60%;
+    font-size: 1.1em;
+    color: #333;
+  }
+  strong {
+    color: #1e96fc;
+  }
+
+  .image {
+    width: 60%;
+    max-width: 400px;
+    height: 375px;  
+    object-fit: cover;  
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+  }
 }
 
-.detailsPage h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.detailsPage .image {
-  width: 60%;
-  max-width: 400px;
-  height: 375px;  
-  object-fit: cover;  
-  border-radius: 10px;
-  transition: opacity 0.3s ease-in-out;
-}
-
-
-.detailsPage p {
-  text-align: start;
-  margin: auto;
-  padding: 10px 0;
-  width: 60%;
-  font-size: 1.1em;
-  color: #333;
-}
-
-.detailsPage strong {
-  color: #1e96fc;
-}
 
 .colourSelector {
   display: flex;
@@ -54,5 +51,35 @@
     transform: scale(1.2);
   }
 }
+
+@media screen and (max-width: 576px) {
+  .detailsPage {
+
+    p {
+      text-align: start;
+      margin: auto;
+      padding: 10px 0;
+      width: 80%;
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .image {
+      width: 80%;
+    }
+
+    .colourButton {
+      width: 6px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid black;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    
+    }
+
+  }
+  
+ }
 
 

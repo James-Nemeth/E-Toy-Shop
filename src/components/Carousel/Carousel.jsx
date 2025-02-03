@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Carousel.module.scss";
+import classes from "./Carousel.module.scss";
 
 const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,27 +29,27 @@ const Carousel = ({ images }) => {
   const { text, color } = getStockStatus(images[currentIndex].quantity);
 
   return (
-    <div className={styles.carousel}>
-      <div className={styles["carousel-inner"]}>
+    <div className={classes.carousel}>
+      <div className={classes.inner}>
         <img
           src={images[currentIndex].imageUrl}
           alt={images[currentIndex].name}
-          className={styles["carousel-image"]}
+          className={classes.image}
         />
-        <div className={styles["carousel-caption"]}>
+        <div className={classes.details}>
           <h2>{images[currentIndex].name}</h2>
           <p>Price: ${images[currentIndex].price}</p>
           <p style={{ color }}>{text}</p>
         </div>
       </div>
       <button
-        className={`${styles["carousel-arrow"]} ${styles["left-arrow"]}`}
+        className={`${classes.arrow} ${classes.left}`}
         onClick={handlePrev}
       >
         ❮
       </button>
       <button
-        className={`${styles["carousel-arrow"]} ${styles["right-arrow"]}`}
+        className={`${classes.arrow} ${classes.right}`}
         onClick={handleNext}
       >
         ❯
