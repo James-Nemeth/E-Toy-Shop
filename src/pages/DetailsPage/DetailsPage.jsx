@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getToyById } from "../../services/toys-services";
-import { useCart } from "../../context/CartContext"; // Import useCart
+import { useCart } from "../../context/CartContext";
 import classes from "./DetailsPage.module.scss";
 import Loader from "../../components/Loader/Loader";
 import Button from "../../components/Button/Button";
@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 
 const DetailsPage = () => {
   const { toyId } = useParams();
-  const { addToCart } = useCart(); // Use addToCart from context
+  const { addToCart } = useCart();
   const [toy, setToy] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true);

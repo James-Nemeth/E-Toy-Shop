@@ -23,10 +23,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={classes["home-page"]}>
+    <div className={classes.home}>
       {toys.length > 0 ? <Carousel images={toys.slice(4, 7)} /> : <Loader />}
       <h2 className={classes.title}>Featured Products</h2>
-      <div className={classes["product-grid"]}>
+      <div className={classes.grid}>
         {toys.slice(9, 13).map((toy) => (
           <Card key={toy.id} toy={toy} />
         ))}

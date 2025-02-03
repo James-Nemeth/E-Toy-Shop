@@ -13,7 +13,7 @@ function App() {
     <>
       <CartProvider>
         <ToastContainer />
-        <BrowserRouter>
+        <BrowserRouter basename="E-Toy-Shop">
           <NavBar />
           <Routes>
             <Route path="/" element={<HomePage />} />
