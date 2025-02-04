@@ -1,0 +1,41 @@
+.nav {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 2em; 
+    gap: 1em;
+    background-color: #ffff58;
+    .logo {
+        height: 90px;
+    }
+    .link {
+      font-size: 1.5em;
+      margin-left: 2em;
+      &:visited {
+        &:hover {
+          color: #1e96fc;
+        }
+      }
+      &_active {
+        font-weight: bold;
+        color: #1e96fc;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .nav {
+      height: 8vh;
+      padding: 0 1em;
+      .logo {
+        height: 55px;
+      }  
+      .link {
+        font-size: 1.2em;
+        margin-left: 1em;
+      }
+    }
+    
+   }
