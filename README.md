@@ -66,7 +66,7 @@ Using JSX, JavaScript and SCSS/Sass.
 ## Design Goals / Approach
 
 - Took inspiration from other toy websites, when for brigth colours of Blue and Yellow that complemented each other.
-- It should have a fun and engaging feel that draws the users eye tothe site.
+- It should have a fun and engaging feel that draws the users eye to the site.
 - Wanted it to look and work well on any device.
 
 ---
