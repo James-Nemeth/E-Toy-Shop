@@ -1,0 +1,40 @@
+.home {
+    text-align: center;
+    .grid {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center; 
+      align-items: stretch; 
+      gap: 20px;
+      padding: 20px;
+    }
+
+  .title {
+    color: #1e96fc;
+    font-size: 2em;
+    margin: 15px 0;
+    text-decoration: underline;
+  }
+
+  .btnWrapper {
+    margin: 40px;
+    
+    .productBtn {
+      font-size: 1.2em;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 10px;
+      background-color: #ffff58;
+      color: #1e96fc;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+  
+      &:hover {
+        color: black;
+      }
+    }
+  }
+  
+}
+  

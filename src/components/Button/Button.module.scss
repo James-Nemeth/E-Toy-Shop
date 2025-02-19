@@ -1,0 +1,23 @@
+.btn {
+  font-size: 1.2em;
+  margin-top: 15px;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  background-color: #ffff58;
+  color: #1e96fc;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    background-color: #bdc3c7; 
+    color: #7a7a7a; 
+    cursor: not-allowed;
+    pointer-events: none; 
+  }
+}
