@@ -5,16 +5,7 @@ import { useCart } from "../../context/CartContext";
 import { updateDoc, doc, getFirestore } from "firebase/firestore";
 import { useState } from "react";
 import { toast } from "react-toastify";
-
-const getStockStatus = (quantity) => {
-  if (quantity > 5) {
-    return { text: `In Stock: ${quantity}`, className: classes.inStock };
-  } else if (quantity > 0 && quantity <= 5) {
-    return { text: `Low Stock: ${quantity}`, className: classes.lowStock };
-  } else {
-    return { text: "No Stock", className: classes.noStock };
-  }
-};
+import { getStockStatus } from "../../utils/stockUtils";
 
 const Card = ({ toy }) => {
   const { addToCart } = useCart();
@@ -22,7 +13,6 @@ const Card = ({ toy }) => {
   const [currentToy, setCurrentToy] = useState(toy);
   const { text, className } = getStockStatus(currentToy.quantity);
 
-  // **Same as Details Page, need to make this function into a function to avoid repeating code**
   const handleAddToCart = async () => {
     if (currentToy.quantity > 0) {
       addToCart(currentToy);
@@ -57,7 +47,7 @@ const Card = ({ toy }) => {
         <div className={classes.info}>
           <h3>{currentToy.name}</h3>
           <p>Price: ${currentToy.price}</p>
-          <p className={className}>{text}</p>
+          <p className={classes[className]}>{text}</p>
         </div>
       </Link>
       <Button onClick={handleAddToCart} disabled={currentToy.quantity === 0}>

@@ -14,14 +14,10 @@
     transform: scale(1.1);
   }
 
-  &.disabled {
+  &:disabled {
     background-color: #bdc3c7; 
     color: #7a7a7a; 
     cursor: not-allowed;
     pointer-events: none; 
-  }
-
-  &.disabled:hover {
-    transform: none; 
   }
 }

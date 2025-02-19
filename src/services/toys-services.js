@@ -13,7 +13,7 @@ export const getToys = async () => {
   }));
 };
 
-//Gets a toy by ID and its variants.
+// Gets a toy by ID and its variants.
 export const getToyById = async (toyId) => {
   // Reference to the toy document
   const toyDocRef = doc(db, "toys", toyId); 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./Carousel.module.scss";
+import { getStockStatus } from "../../utils/stockUtils";
 
 const Carousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,17 +17,6 @@ const Carousel = ({ images }) => {
     setCurrentIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-  };
-
-  // stock status changes depending on the quantity amount
-  const getStockStatus = (quantity) => {
-    if (quantity > 5) {
-      return { text: `In Stock: ${quantity}`, color: "lightgreen" };
-    } else if (quantity > 0 && quantity <= 5) {
-      return { text: `Low Stock: ${quantity}`, color: "orange" };
-    } else {
-      return { text: "No Stock", color: "red" };
-    }
   };
 
   const { text, color } = getStockStatus(images[currentIndex].quantity);
